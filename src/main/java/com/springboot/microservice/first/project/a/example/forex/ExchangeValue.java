@@ -1,4 +1,4 @@
-package com.springboot.microservice.first.project.example.forex;
+package com.springboot.microservice.first.project.a.example.forex;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.springboot.microservice.first.project.example.forex;
+package com.springboot.microservice.first.project.a.example.forex;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
