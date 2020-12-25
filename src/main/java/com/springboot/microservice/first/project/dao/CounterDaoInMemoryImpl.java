@@ -2,19 +2,21 @@ package com.springboot.microservice.first.project.dao;
 
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
+
 @Repository
 public class CounterDaoInMemoryImpl implements CounterDao {
 
-    private long counter;
+    private BigInteger counter;
 
     @Override
-    public long getCounter() {
+    public BigInteger getCounter() {
         return counter;
     }
 
     @Override
-    public void setCounter(long counter) {
-        this.counter = counter;
+    public void incrementCounter() {
+        this.counter.add(BigInteger.ONE);
     }
 
 }

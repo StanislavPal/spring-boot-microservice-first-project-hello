@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
 import java.security.Provider;
 
 @RestController
@@ -23,8 +24,8 @@ public class HelloController {
 
     @GetMapping()
     public String sayHello() {
-        long counter = counterService.incrementCounter();
-        kafkaSend("hello", "1", Long.toString(counter) );
+        BigInteger counter = counterService.incrementCounter();
+        kafkaSend("hello", "1", counter.toString() );
         return "Добрый день! " + counter;
     }
 

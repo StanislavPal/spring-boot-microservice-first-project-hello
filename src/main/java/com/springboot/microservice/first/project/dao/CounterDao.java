@@ -1,6 +1,8 @@
 package com.springboot.microservice.first.project.dao;
 
+import java.math.BigInteger;
+
 public interface CounterDao {
-    long getCounter();
-    void setCounter(long counter);
+    BigInteger getCounter();
+    void incrementCounter();
 }
