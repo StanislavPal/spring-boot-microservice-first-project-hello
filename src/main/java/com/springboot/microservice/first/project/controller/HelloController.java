@@ -23,7 +23,8 @@ public class HelloController {
 
     @GetMapping()
     public String sayHello() {
-        long counter = counterService.incrementCounter();
+        counterService.incrementCounter();
+        long counter = counterService.getCounter();
         kafkaSend("hello", "1", Long.toString(counter) );
         return "Добрый день! " + counter;
     }
