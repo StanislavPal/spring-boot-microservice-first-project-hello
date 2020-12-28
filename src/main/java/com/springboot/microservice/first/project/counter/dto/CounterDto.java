@@ -6,6 +6,9 @@ public class CounterDto {
     private CounterType type;
     private long count;
 
+    public CounterDto() {
+    }
+
     public CounterDto(CounterType type, long count) {
         this.type = type;
         this.count = count;
