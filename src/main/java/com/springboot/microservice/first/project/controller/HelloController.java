@@ -4,6 +4,7 @@ import com.springboot.microservice.first.project.counter.CounterType;
 import com.springboot.microservice.first.project.counter.dto.CounterDto;
 import com.springboot.microservice.first.project.service.CounterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -20,10 +21,13 @@ import java.security.Provider;
 public class HelloController {
 
     @Autowired
-    private CounterService counterService;
+    private Environment environment;
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
+
+    @Autowired
+    private CounterService counterService;
 
     @GetMapping()
     public String sayHello() {
@@ -37,6 +41,8 @@ public class HelloController {
     public ResponseEntity<CounterDto> getCount() {
         long counter = counterService.getCounter();
         CounterDto counterDto = new CounterDto(CounterType.HELLO, counter);
+        counterDto.setPort( Integer.parseInt( environment.getProperty("local.server.port") ) );
+
         return new ResponseEntity<>(counterDto, HttpStatus.OK);
     }
 

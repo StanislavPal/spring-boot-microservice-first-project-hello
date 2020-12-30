@@ -5,6 +5,7 @@ import com.springboot.microservice.first.project.counter.CounterType;
 public class CounterDto {
     private CounterType type;
     private long count;
+    private int port;
 
     public CounterDto() {
     }
@@ -28,5 +29,13 @@ public class CounterDto {
 
     public void setCount(long count) {
         this.count = count;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }
