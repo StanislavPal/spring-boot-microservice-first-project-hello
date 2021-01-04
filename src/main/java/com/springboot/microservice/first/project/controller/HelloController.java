@@ -34,7 +34,9 @@ public class HelloController {
         counterService.incrementCounter();
         long counter = counterService.getCounter();
         kafkaSend("hello", "1", Long.toString(counter) );
-        return "Добрый день! " + counter;
+        return "Добрый день!\n" +
+                "Вы здоровались " + counter + " раз(а)\n" +
+                "(port = " + environment.getProperty("local.server.port") + ")";
     }
 
     @GetMapping("/count")
